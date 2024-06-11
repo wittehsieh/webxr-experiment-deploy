@@ -855,10 +855,7 @@ void main()
               Module.HEAPF32[controller.handIndex] = hand; // XRControllerData.hand
 
               if (controller.updatedProfiles == 0 && inputSource.profiles.length > 0) {
-                  controller.profiles = inputSource.profiles;
-                  for (var i = 0; i < inputSource.profiles.length; i++) {
-                      console.log("WebXR Profile: " + inputSource.profiles[i]);
-                  }
+                controller.profiles = inputSource.profiles;
                 controller.updatedProfiles = 1;
               }
               
@@ -1127,7 +1124,8 @@ void main()
             Module.HEAPF32[xrData.viewerHitTestPose.availableIndex] = 0; // XRHitPoseData.available
           }
         }
-    
+
+        console.log("[WEBXR] XRManager.prototype.animate");
         if (xrData.controllerA.updatedProfiles == 1 || xrData.controllerB.updatedProfiles == 1)
         {
           var inputProfiles = {};
@@ -1141,6 +1139,7 @@ void main()
           {
             xrData.controllerB.updatedProfiles = 2;
           }
+            console.log("[WEBXR] " + JSON.stringify(inputProfiles));
           this.gameModule.WebXR.OnInputProfiles(JSON.stringify(inputProfiles));
         }
         
