@@ -855,10 +855,7 @@ void main()
               Module.HEAPF32[controller.handIndex] = hand; // XRControllerData.hand
 
               if (controller.updatedProfiles == 0 && inputSource.profiles.length > 0) {
-                  controller.profiles = inputSource.profiles;
-                  for (var i = 0; i < inputSource.profiles.length; i++) {
-                      log("WebXR Profile: " + inputSource.profiles[i]);
-                  }
+                controller.profiles = inputSource.profiles;
                 controller.updatedProfiles = 1;
               }
               
