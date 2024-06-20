@@ -368,7 +368,7 @@ void main()
         });
     
         navigator.xr.isSessionSupported('immersive-ar').then(function (supported) {
-          thisXRMananger.isARSupported = supported;
+          thisXRMananger.isARSupported = true;
           if (Module.WebXR.unityLoaded)
           {
             document.dispatchEvent(new CustomEvent('onARSupportedCheck', { detail:{supported:thisXRMananger.isARSupported} }));
