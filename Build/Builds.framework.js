@@ -358,7 +358,11 @@ void main()
         
         this.attachEventListeners();
         var thisXRMananger = this;
-        navigator.xr.isSessionSupported('immersive-vr').then(function (supported) {
+
+        console.log("[WebXR][Unity] init XRManager");
+
+          navigator.xr.isSessionSupported('immersive-vr').then(function (supported) {
+              console.log("[WebXR][Unity] immsersive-vr support:" + supported);
           thisXRMananger.isVRSupported = supported;
           if (Module.WebXR.unityLoaded)
           {
@@ -366,8 +370,9 @@ void main()
             thisXRMananger.UpdateXRCapabilities();
           }
         });
-    
-        navigator.xr.isSessionSupported('immersive-ar').then(function (supported) {
+        
+          navigator.xr.isSessionSupported('immersive-ar').then(function (supported) {
+              console.log("[WebXR][Unity] immsersive-ar support:" + supported);
           thisXRMananger.isARSupported = supported;
           if (Module.WebXR.unityLoaded)
           {
