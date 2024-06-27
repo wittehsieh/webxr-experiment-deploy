@@ -1106,8 +1106,7 @@ class XRSystem extends EventTarget {
     devicePromise.then((device) => { this[PRIVATE$4].device = device; });
   }
     async isSessionSupported(mode) {
-        console.log("XRSystem return true");
-        return true;
+    console.log("[WebXR] XRSystem.isSessionSupported");
     if (!this[PRIVATE$4].device) {
       await this[PRIVATE$4].devicePromise;
     }
@@ -5643,9 +5642,7 @@ class WebVRDevice extends XRDevice {
     }
   }
     isSessionSupported(mode) {
-        console.log("WebVRDevice return true");
-        return true;
-
+        console.log("[WebXR] WebVRDevice.isSessionSupported");
     if (mode == 'immersive-ar') {
       return false;
     }
@@ -5964,6 +5961,7 @@ class InlineDevice extends XRDevice {
     session.baseLayer = layer;
   }
     isSessionSupported(mode) {
+        console.log("[WebXR] inline.isSessionSupported");
     return mode == 'inline';
   }
   isFeatureSupported(featureDescriptor) {
@@ -6152,8 +6150,7 @@ host this content on a secure origin for the best user experience.
         !('isSessionSupported' in global.navigator.xr)) {
       let originalSupportsSession = global.navigator.xr.supportsSession;
         global.navigator.xr.isSessionSupported = function (mode) {
-            console.log("_injectCompatibilityShims return true");
-            return true;
+            console.log("[WebXR] Dynamic.isSessionSupported");
         return originalSupportsSession.call(this, mode).then(() => {
           return true;
         }).catch(() => {
