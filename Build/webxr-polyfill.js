@@ -5641,7 +5641,6 @@ class WebVRDevice extends XRDevice {
     }
   }
   isSessionSupported(mode) {
-        return true;
     if (mode == 'immersive-ar') {
       return false;
     }
@@ -5959,7 +5958,8 @@ class InlineDevice extends XRDevice {
     const session = this.sessions.get(sessionId);
     session.baseLayer = layer;
   }
-  isSessionSupported(mode) {
+    isSessionSupported(mode) {
+        return true;
     return mode == 'inline';
   }
   isFeatureSupported(featureDescriptor) {
