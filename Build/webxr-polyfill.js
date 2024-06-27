@@ -6091,9 +6091,11 @@ class WebXRPolyfill {
     this.global = this.config.global;
     this.nativeWebXR = 'xr' in this.global.navigator;
     this.injected = false;
-    if (!this.nativeWebXR) {
+      if (!this.nativeWebXR) {
+          console.log("[WebXR] WebXRPolyfill - _injectPolyfill");
       this._injectPolyfill(this.global);
-    } else {
+      } else {
+          console.log("[WebXR] WebXRPolyfill - _injectCompatibilityShims");
       this._injectCompatibilityShims(this.global);
     }
   }

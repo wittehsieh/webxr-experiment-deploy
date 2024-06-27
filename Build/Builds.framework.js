@@ -344,14 +344,17 @@ void main()
         this.init();
       }
     
-      XRManager.prototype.init = function () {
+        XRManager.prototype.init = function () {
+            console.log("[WebXR] XRManager.prototype.init");
         if (window.WebXRPolyfill) {
           if (window.WebXRPolyfillConfig) {
             // Configuration options can be found at https://github.com/immersive-web/webxr-polyfill#new-webxrpolyfillconfig
             // Added WebXR Polyfill Config option in the WebGLTemplates setting.
-            // Can add there "window.WebXRPolyfillConfig = {...}" with the desired configuration.
+              // Can add there "window.WebXRPolyfillConfig = {...}" with the desired configuration.
+              console.log("[WebXR] XRManager.prototype.init - have polyfill config");
             this.polyfill = new WebXRPolyfill(window.WebXRPolyfillConfig);
           } else {
+              console.log("[WebXR] XRManager.prototype.init - have no polyfill config");
             this.polyfill = new WebXRPolyfill();
           }
         }
