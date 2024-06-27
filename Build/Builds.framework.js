@@ -1207,9 +1207,8 @@ void main()
     
       function init() {
         if (typeof(navigator.xr) == 'undefined') {
-		  console.log("[WebXR] Load polyfill file");
           var script = document.createElement('script');
-          script.src = 'https://cdn.jsdelivr.net/npm/webxr-polyfill@latest/build/webxr-polyfill.js';
+          script.src = './webxr-polyfill.js';
           document.getElementsByTagName('head')[0].appendChild(script);
     
           script.addEventListener('load', function () {
