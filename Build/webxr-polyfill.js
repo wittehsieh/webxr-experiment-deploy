@@ -5641,6 +5641,7 @@ class WebVRDevice extends XRDevice {
     }
   }
   isSessionSupported(mode) {
+        return true;
     if (mode == 'immersive-ar') {
       return false;
     }
