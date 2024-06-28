@@ -723,7 +723,7 @@ void main()
       }
     
       XRManager.prototype.UpdateXRCapabilities = function() {
-          // Send browser capabilities to Unity.
+        // Send browser capabilities to Unity.
         this.gameModule.WebXR.OnXRCapabilities(this.isARSupported, this.isVRSupported);
       }
       
